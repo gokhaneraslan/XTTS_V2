@@ -120,7 +120,7 @@ def main():
         num_loader_workers=4,
         eval_split_max_size=256,
         print_step=50,
-        epochs=2,
+        epochs=100,
         plot_step=100,
         log_model_step=1000,
         save_step=10000,
