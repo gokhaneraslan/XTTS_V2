@@ -6,7 +6,7 @@ from peft import PeftModel
 from TTS.tts.layers.xtts.trainer.gpt_trainer import GPTArgs, GPTTrainer, GPTTrainerConfig, XttsAudioConfig
 
 
-SCRIPT_DIR = Path("/TTS").resolve().parent
+SCRIPT_DIR = Path("/content/XTTS_V2")
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 SPEAKER_REFERENCE_ROOT = SCRIPT_DIR / "speaker_reference"
@@ -19,7 +19,7 @@ XTTS_DVAE_PATH = PRETRAINED_MODEL_ROOT / "dvae.pth"
 XTTS_MODEL_PATH = PRETRAINED_MODEL_ROOT / "model.pth"
 XTTS_TOKENIZER_PATH = PRETRAINED_MODEL_ROOT / "vocab.json"
 
-SPEAKER_REFERENCE_WAV_PATH = SPEAKER_REFERENCE_ROOT / "segment_1.wav"
+SPEAKER_REFERENCE_WAV_PATH = SPEAKER_REFERENCE_ROOT / "reference.wav"
 OUTPUT_PATH = OUTPUT_ROOT_DIR / "checkpoints/"
 
 LORA_ADAPTER_PATH = OUTPUT_PATH / "lora_adapter"
