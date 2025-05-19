@@ -70,8 +70,8 @@ def main(text:str, language: str):
     print("Model loading from checkpoint...")
     model.load_checkpoint(
         config,
-        checkpoint_path=XTTS_MODEL_PATH,
-        vocab_path=XTTS_TOKENIZER_PATH,
+        checkpoint_path=str(XTTS_MODEL_PATH),
+        vocab_path=str(XTTS_TOKENIZER_PATH),
         speaker_file_path=" ",
         use_deepspeed=False,
         eval=True)
