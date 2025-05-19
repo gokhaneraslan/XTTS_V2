@@ -4,9 +4,10 @@ import torchaudio
 from pathlib import Path
 from peft import PeftModel
 from TTS.tts.layers.xtts.trainer.gpt_trainer import GPTArgs, GPTTrainer, GPTTrainerConfig, XttsAudioConfig
+from config import MAIN_DIR
 
 
-SCRIPT_DIR = Path("/content/XTTS_V2")
+SCRIPT_DIR = Path(MAIN_DIR)
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 SPEAKER_REFERENCE_ROOT = SCRIPT_DIR / "speaker_reference"

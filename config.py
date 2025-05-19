@@ -1,0 +1,1 @@
+MAIN_DIR = "/content/XTTS_V2" # Replace the path here with the path where you cloned the repository

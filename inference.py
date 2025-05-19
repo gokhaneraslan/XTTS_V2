@@ -4,9 +4,9 @@ import torchaudio
 from pathlib import Path
 from TTS.tts.configs.xtts_config import XttsConfig
 from TTS.tts.models.xtts import Xtts
+from config import MAIN_DIR
 
-
-SCRIPT_DIR = Path("/content/XTTS_V2")
+SCRIPT_DIR = Path(MAIN_DIR)
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"

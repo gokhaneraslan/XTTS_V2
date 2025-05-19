@@ -2,7 +2,7 @@ import subprocess
 from pathlib import Path
 import shutil
 import os
-
+from config import MAIN_DIR
 
 def download_file_with_wget(url, output_path=None, quiet=False, continue_download=True):
 
@@ -68,9 +68,8 @@ def download_file_with_wget(url, output_path=None, quiet=False, continue_downloa
 
 
 
-OUT_PATH = Path("/content") # Replace the path here with the path where you cloned the repository
-
-SAVE_PATH = OUT_PATH / "XTTS_V2" / "pretrained_model"
+OUT_PATH = Path(MAIN_DIR)
+SAVE_PATH = OUT_PATH / "pretrained_model"
 
 
 DVAE_CHECKPOINT_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/dvae.pth"

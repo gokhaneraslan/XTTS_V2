@@ -4,11 +4,12 @@ import torchaudio
 from pathlib import Path
 from TTS.tts.configs.xtts_config import XttsConfig
 from TTS.tts.models.xtts import Xtts
+from config import MAIN_DIR
 
 from peft import PeftModel
 
 
-SCRIPT_DIR = Path("/content/XTTS_V2")
+SCRIPT_DIR = Path(MAIN_DIR)
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"
@@ -90,8 +91,8 @@ def main(text:str, language: str):
         model.cuda()
         
     # We are reinstalling the gpt inference layers because they were deleted
-    model_container.gpt.init_gpt_for_inference()
-    model_container.gpt.eval()
+    model.gpt.init_gpt_for_inference()
+    model.gpt.eval()
     
     print("Computing speaker latents...")
     gpt_cond_latent, speaker_embedding = model.get_conditioning_latents(

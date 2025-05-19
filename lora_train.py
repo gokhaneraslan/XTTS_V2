@@ -6,9 +6,9 @@ from pathlib import Path
 import sys
 
 from peft import LoraConfig, get_peft_model
+from config import MAIN_DIR
 
- 
-SCRIPT_DIR = Path("/content/XTTS_V2")
+SCRIPT_DIR = Path(MAIN_DIR)
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 MYTTSDATASET_ROOT = SCRIPT_DIR / "MyTTSDataset"
