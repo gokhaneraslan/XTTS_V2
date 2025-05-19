@@ -11,7 +11,6 @@ SCRIPT_DIR = Path("/content/XTTS_V2")
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"
 SPEAKER_REFERENCE_ROOT = SCRIPT_DIR / "speaker_reference"
-OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"
 
 CHECKPOINT_MODEL_PATH = OUTPUT_ROOT_DIR / "checkpoints" / "xtts_finetune_v2-May-19-2025_04+06PM-af643bc"
 
@@ -20,7 +19,7 @@ XTTS_CHECKPOINT_PATH = CHECKPOINT_MODEL_PATH / "best_model_338.pth"
 
 TOKENIZER_PATH = PRETRAINED_MODEL_ROOT / "vocab.json"
 
-SPEAKER_REFERENCE_WAV_PATH = SPEAKER_REFERENCE_ROOT / "segment_1.wav"
+SPEAKER_REFERENCE_WAV_PATH = SPEAKER_REFERENCE_ROOT / "reference.wav"
 OUTPUT_WAV_PATH = OUTPUT_ROOT_DIR / "samples" / "output.wav"
 
 
@@ -64,8 +63,8 @@ def main(text:str, language: str):
     print("Model loading from checkpoint...")
     model.load_checkpoint(
         config, 
-        checkpoint_path=XTTS_CHECKPOINT_PATH, 
-        vocab_path=TOKENIZER_PATH, 
+        checkpoint_path=str(XTTS_CHECKPOINT_PATH), 
+        vocab_path=str(TOKENIZER_PATH), 
         speaker_file_path=" ", 
         use_deepspeed=False,
         eval=True)
