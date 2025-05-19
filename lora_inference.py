@@ -8,7 +8,7 @@ from TTS.tts.models.xtts import Xtts
 from peft import PeftModel
 
 
-SCRIPT_DIR = Path("/TTS").resolve().parent
+SCRIPT_DIR = Path("/content/XTTS_V2")
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"
