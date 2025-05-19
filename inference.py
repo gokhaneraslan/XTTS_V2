@@ -13,7 +13,7 @@ OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"
 SPEAKER_REFERENCE_ROOT = SCRIPT_DIR / "speaker_reference"
 OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"
 
-CHECKPOINT_MODEL_PATH = OUTPUT_ROOT_DIR / "checkpoints" / "xtts_finetune_v2-May-19-2025_04+06PM-af643bc/best_model_338.pth"
+CHECKPOINT_MODEL_PATH = OUTPUT_ROOT_DIR / "checkpoints" / "xtts_finetune_v2-May-19-2025_04+06PM-af643bc" / "best_model_338.pth"
 
 CONFIG_CHECKPOINT_PATH = CHECKPOINT_MODEL_PATH / "config.json"
 XTTS_CHECKPOINT_PATH = CHECKPOINT_MODEL_PATH / "model.pth"
