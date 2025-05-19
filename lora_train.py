@@ -12,6 +12,7 @@ SCRIPT_DIR = Path("/content/XTTS_V2")
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 MYTTSDATASET_ROOT = SCRIPT_DIR / "MyTTSDataset"
+SPEAKER_REFERENCE_ROOT = SCRIPT_DIR / "speaker_reference"
 OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"
 
 
@@ -21,7 +22,7 @@ XTTS_MODEL_PATH = PRETRAINED_MODEL_ROOT / "model.pth"
 XTTS_TOKENIZER_PATH = PRETRAINED_MODEL_ROOT / "vocab.json"
 
 
-SPEAKER_REFERENCE_WAV_PATHS = [MYTTSDATASET_ROOT / "wavs" / "segment_1.wav"]
+SPEAKER_REFERENCE_WAV_PATH = SPEAKER_REFERENCE_ROOT / "reference.wav"
 OUTPUT_PATH = OUTPUT_ROOT_DIR / "checkpoints/"
 
 LORA_ADAPTER_PATH = OUTPUT_PATH / "lora_adapter"
@@ -45,6 +46,7 @@ def check_input_files_exist():
     print("Verifying existence of input files and directories...")
     critical_files_missing = False
     files_to_check = {
+        "Speaker reference wav": SPEAKER_REFERENCE_WAV_PATH,
         "Dataset directory": MYTTSDATASET_ROOT,
         "XTTS Mel statistics": XTTS_MEL_PATH,
         "XTTS DVAE model": XTTS_DVAE_PATH,
@@ -60,15 +62,6 @@ def check_input_files_exist():
         else:
             print(f"Found: {description} at {path_obj}")
 
-    if not SPEAKER_REFERENCE_WAV_PATHS:
-        print("SPEAKER_REFERENCE_WAV_PATHS list is empty. Test sentences might fail.")
-    else:
-        for i, wav_path in enumerate(SPEAKER_REFERENCE_WAV_PATHS):
-            if not wav_path.exists():
-                print(f"Speaker reference WAV #{i+1} not found at: {wav_path}")
-                critical_files_missing = True
-            else:
-                print(f"Found: Speaker reference WAV #{i+1} at {wav_path}")
 
     if critical_files_missing:
         print("One or more input files are missing. Please check paths. Exiting.")
@@ -116,6 +109,7 @@ def main():
         output_sample_rate=24000
     )
 
+
     config = GPTTrainerConfig(
         output_path=str(OUTPUT_PATH),
         model_args=model_args,
@@ -147,26 +141,27 @@ def main():
         test_sentences=[
             {
                 "text": "It took me quite a long time to develop a voice, and now that I have it I'm not going to be silent.",
-                "speaker_wav": str(SPEAKER_REFERENCE_WAV_PATHS),
+                "speaker_wav": str(SPEAKER_REFERENCE_WAV_PATH),
                 "language": "en",
             },
             {
                 "text": "This cake is great. It's so delicious and moist.",
-                "speaker_wav": str(SPEAKER_REFERENCE_WAV_PATHS),
+                "speaker_wav": str(SPEAKER_REFERENCE_WAV_PATH),
                 "language": "en",
             },
             {
                 "text": "Bu, sesimi geliştirmemin oldukça uzun zamanımı aldı ve şimdi sahip olduğuma göre sessiz kalmayacağım.",
-                "speaker_wav": str(SPEAKER_REFERENCE_WAV_PATHS),
+                "speaker_wav": str(SPEAKER_REFERENCE_WAV_PATH),
                 "language": "tr",
             },
             {
                 "text": "Bu kek harika. Çok lezzetli ve nemli.",
-                "speaker_wav": str(SPEAKER_REFERENCE_WAV_PATHS),
+                "speaker_wav": str(SPEAKER_REFERENCE_WAV_PATH),
                 "language": "tr",
             },
         ],
     )
+
 
     print("Initializing the GPTTrainer model from configuration.")
     model_peft = GPTTrainer.init_from_config(config)
