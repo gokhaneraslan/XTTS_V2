@@ -42,6 +42,7 @@ def check_input_files_exist():
     print("Verifying existence of input files and directories...")
     critical_files_missing = False
     files_to_check = {
+        "Speaker reference wav": SPEAKER_REFERENCE_WAV_PATH,
         "Dataset directory": MYTTSDATASET_ROOT,
         "XTTS Mel statistics": XTTS_MEL_PATH,
         "XTTS DVAE model": XTTS_DVAE_PATH,
@@ -57,15 +58,6 @@ def check_input_files_exist():
         else:
             print(f"Found: {description} at {path_obj}")
 
-    if not SPEAKER_REFERENCE_WAV_PATHS:
-        print("SPEAKER_REFERENCE_WAV_PATHS list is empty. Test sentences might fail.")
-    else:
-        for i, wav_path in enumerate(SPEAKER_REFERENCE_WAV_PATHS):
-            if not wav_path.exists():
-                print(f"Speaker reference WAV #{i+1} not found at: {wav_path}")
-                critical_files_missing = True
-            else:
-                print(f"Found: Speaker reference WAV #{i+1} at {wav_path}")
 
     if critical_files_missing:
         print("One or more input files are missing. Please check paths. Exiting.")
