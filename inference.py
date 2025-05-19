@@ -6,7 +6,7 @@ from TTS.tts.configs.xtts_config import XttsConfig
 from TTS.tts.models.xtts import Xtts
 from config import MAIN_DIR
 
-SCRIPT_DIR = Path(MAIN_DIR)
+SCRIPT_DIR = Path(MAIN_DIR + "/XTTS_V2")
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"
