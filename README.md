@@ -1,7 +1,7 @@
 # XTTS Fine-tuning Framework
 
 
-This repository contains a framework for fine-tuning [Coqui-AI's TTS](https://github.com/coqui-ai/TTS) XTTS_V2 model, specialized for multilingual (with focus on Turkish) text-to-speech applications. It provides tools for both standard fine-tuning and LoRA (Low-Rank Adaptation) based fine-tuning.
+This repository contains a framework for fine-tuning [Coqui-AI's TTS](https://github.com/coqui-ai/TTS) XTTS_V2 model, specialized for multilingual text-to-speech applications. It provides tools for both standard fine-tuning and LoRA (Low-Rank Adaptation) based fine-tuning.
 
 ## 📋 Overview
 
