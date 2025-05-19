@@ -8,7 +8,7 @@ import sys
 from peft import LoraConfig, get_peft_model
 
  
-SCRIPT_DIR = Path("/TTS").resolve().parent
+SCRIPT_DIR = Path("/content/TTS")
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 MYTTSDATASET_ROOT = SCRIPT_DIR / "MyTTSDataset"
@@ -99,10 +99,10 @@ def main():
         debug_loading_failures=False,
         max_wav_length=255995,
         max_text_length=200,
-        mel_norm_file=XTTS_MEL_PATH,
-        dvae_checkpoint=XTTS_DVAE_PATH,
-        xtts_checkpoint=XTTS_MODEL_PATH,
-        tokenizer_file=XTTS_TOKENIZER_PATH,
+        mel_norm_file=str(XTTS_MEL_PATH),
+        dvae_checkpoint=str(XTTS_DVAE_PATH),
+        xtts_checkpoint=str(XTTS_MODEL_PATH),
+        tokenizer_file=str(XTTS_TOKENIZER_PATH),
         gpt_num_audio_tokens=1026,
         gpt_start_audio_token=1024,
         gpt_stop_audio_token=1025,
@@ -120,9 +120,9 @@ def main():
     config = GPTTrainerConfig(
         output_path=OUTPUT_PATH,
         model_args=model_args,
-        run_name="xtts_finetune_tr_v2_lora",
-        project_name="xtts_turkish_finetuning_project_lora",
-        run_description="Fine-tuning-lora XTTS on custom Turkish LJSPEECH-like dataset",
+        run_name="xtts_finetune_v2",
+        project_name="xtts_finetuning_project",
+        run_description="Fine-tuning XTTS on LJSPEECH-like dataset",
         dashboard_logger="tensorboard",
         logger_uri=None,
         audio=audio_config,
