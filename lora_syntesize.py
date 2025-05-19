@@ -7,7 +7,7 @@ from TTS.tts.layers.xtts.trainer.gpt_trainer import GPTArgs, GPTTrainer, GPTTrai
 from config import MAIN_DIR
 
 
-SCRIPT_DIR = Path(MAIN_DIR)
+SCRIPT_DIR = Path(MAIN_DIR + "/XTTS_V2")
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 SPEAKER_REFERENCE_ROOT = SCRIPT_DIR / "speaker_reference"

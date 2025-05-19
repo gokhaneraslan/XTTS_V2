@@ -9,7 +9,7 @@ from config import MAIN_DIR
 from peft import PeftModel
 
 
-SCRIPT_DIR = Path(MAIN_DIR)
+SCRIPT_DIR = Path(MAIN_DIR + "/XTTS_V2")
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 OUTPUT_ROOT_DIR = SCRIPT_DIR / "training_output"

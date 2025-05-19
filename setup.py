@@ -68,7 +68,7 @@ def download_file_with_wget(url, output_path=None, quiet=False, continue_downloa
 
 
 
-OUT_PATH = Path(MAIN_DIR)
+OUT_PATH = Path(MAIN_DIR + "/XTTS_V2")
 SAVE_PATH = OUT_PATH / "pretrained_model"
 
 
