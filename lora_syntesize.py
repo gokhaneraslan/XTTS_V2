@@ -146,9 +146,8 @@ def main(text:str, language: str):
     if torch.cuda.is_available():
         model_container.cuda()
 
-
-    #model_container.xtts.gpt.init_gpt_for_inference() # if gpt_trainer delete the xtts.gpt.gpt_inference layers
-    #model_container.xtts.gpt.eval()
+    model_container.xtts.gpt.init_gpt_for_inference() # if gpt_trainer delete the xtts.gpt.gpt_inference layers
+    model_container.xtts.gpt.eval()
     
     print("Start to inference...")
     out = model_container.xtts.synthesize(
