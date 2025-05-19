@@ -1,7 +1,7 @@
 # XTTS Fine-tuning Framework
 
 
-This repository contains a framework for fine-tuning [Coqui-AI's TTS](https://github.com/coqui-ai/TTS) XTTS_V2 model, specialized for multilingual text-to-speech applications. It provides tools for both standard fine-tuning and LoRA (Low-Rank Adaptation) based fine-tuning.
+This repository contains a framework for fine-tuning [Coqui-AI's TTS](https://github.com/coqui-ai/TTS) XTTS_V2 model, specialized for multilingual (with focus on Turkish) text-to-speech applications. It provides tools for both standard fine-tuning and LoRA (Low-Rank Adaptation) based fine-tuning.
 
 ## 📋 Overview
 
@@ -14,6 +14,30 @@ This project builds upon the XTTS_V2 model from Coqui-AI TTS to provide:
 
 ## 🔧 Requirements & Setup
 
+### IMPORTANT: Initial Setup
+
+Before proceeding with any other steps, you must:
+
+1. **Configure the main directory path**:
+   Edit `config.py` to set your repository root path:
+   ```python
+   MAIN_DIR = "/path/to/your/repository"  # Replace with your actual path
+   ```
+
+2. **Download pretrained model files**:
+   Run the setup script to automatically download all required pretrained models:
+   ```bash
+   python setup.py
+   ```
+   
+   This script will download:
+   - XTTS_V2 base model (`model.pth`)
+   - Tokenizer vocabulary (`vocab.json`)
+   - Discrete VAE model (`dvae.pth`)
+   - Mel spectrogram statistics (`mel_stats.pth`)
+
+> ⚠️ **IMPORTANT**: These two steps must be completed first or the system will not work properly.
+
 ### Directory Structure
 
 The project expects the following directory structure:
@@ -21,9 +45,9 @@ The project expects the following directory structure:
 ```
 /
 ├── TTS/                   # Coqui-AI TTS library
-├── pretrained_model/      # Contains original XTTS model files
-│   ├── model.pth          # XTTS base model
-│   ├── vocab.json         # XTTS tokenizer vocabulary
+├── pretrained_model/      # Contains original XTTS_V2 model files
+│   ├── model.pth          # XTTS_V2 base model
+│   ├── vocab.json         # XTTS_V2 tokenizer vocabulary
 │   ├── dvae.pth           # Discrete VAE model
 │   └── mel_stats.pth      # Mel spectrogram statistics
 ├── MyTTSDataset/          # Your custom dataset in LJSpeech format
@@ -31,7 +55,7 @@ The project expects the following directory structure:
 │   └── wavs/              # WAV files
 │       └── segment_1.wav  # Reference audio sample
 ├── speaker_reference/     # Speaker reference audio files
-│   └── segment_1.wav      # Reference audio for voice cloning
+│   └── reference.wav      # Reference audio for voice cloning
 └── training_output/       # Training outputs
     ├── checkpoints/       # Saved model checkpoints
     └── samples/           # Generated audio samples
@@ -49,6 +73,13 @@ cd XTTS_V2
 pip install -r requirements.txt
 ```
 
+4. **IMPORTANT**: Configure and download pretrained models
+```bash
+# First, edit config.py to set your main directory path
+# Then run:
+python setup.py
+```
+
 ## 🚀 Usage
 
 ### 1. Preparing Your Dataset
@@ -59,7 +90,7 @@ Prepare your dataset in LJSpeech format:
 
 ### 2. Standard Fine-tuning
 
-To fine-tune the entire XTTS model:
+To fine-tune the entire XTTS_V2 model:
 
 ```bash
 python train.py
@@ -94,6 +125,12 @@ python lora_syntesize.py
 ```
 
 ## 📝 Script Descriptions
+
+### `config.py`
+Configuration file where you must set the main directory path (`MAIN_DIR`) before running any other scripts.
+
+### `setup.py`
+Downloads all required pretrained model files from Coqui-AI servers and places them in the correct directories.
 
 ### `train.py`
 Full model fine-tuning script. It loads the XTTS_V2 model and fine-tunes all parameters on your custom dataset.
@@ -135,13 +172,15 @@ Alternative inference script that utilizes the training framework for LoRA-based
 
 ## 🔍 Important Considerations
 
-1. **GPU Memory**: Full fine-tuning requires significant GPU memory (16GB+). LoRA reduces this requirement substantially.
+1. **Initial Setup**: Ensure you've properly configured `config.py` and run `setup.py` before attempting any training or inference.
+
+2. **GPU Memory**: Full fine-tuning requires significant GPU memory (16GB+). LoRA reduces this requirement substantially.
 
 2. **Training Time**: Expect training to take several hours to days depending on dataset size and hardware.
 
 3. **Reference Audio**: The quality of the reference audio significantly impacts the voice cloning results.
 
-4. **Language Support**: While focused on Turkish, the framework supports other languages supported by XTTS.
+4. **Language Support**: While focused on Turkish, the framework supports other languages supported by XTTS_V2.
 
 5. **File Paths**: Ensure all file paths are correctly set up before running the scripts.
 
@@ -181,12 +220,13 @@ LoRA is a parameter-efficient fine-tuning technique that:
 - Significantly reduces memory requirements during training
 - Enables efficient adaptation of large language models
 
+
 ## 🙏 Acknowledgements
 
-This project builds upon the excellent work of the [Coqui-AI TTS](https://github.com/coqui-ai/TTS) team. Special thanks to the original authors and contributors of the XTTS model and the TTS library.
+This project builds upon the excellent work of the [Coqui-AI TTS](https://github.com/coqui-ai/TTS) team. Special thanks to the original authors and contributors of the XTTS_V2 model and the TTS library.
 
 ## 📚 Further Reading
 
 - [Coqui-AI TTS Documentation](https://tts.readthedocs.io/)
 - [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)
-- [XTTS Technical Details](https://github.com/coqui-ai/TTS/tree/dev/TTS/tts/models/xtts)
+- [XTTS_V2 Technical Details](https://github.com/coqui-ai/TTS/tree/dev/TTS/tts/models/xtts)
