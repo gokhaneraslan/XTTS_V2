@@ -80,7 +80,7 @@ def main():
         DATASETS_CONFIG_LIST,
         eval_split=True,
         eval_split_max_size=256,
-        eval_split_size=0.1,
+        eval_split_size=0.05,
     )
 
     print(f"Loaded {len(train_samples) if train_samples else 0} training samples and {len(eval_samples) if eval_samples else 0} evaluation samples.")
@@ -125,7 +125,7 @@ def main():
         num_loader_workers=4,
         eval_split_max_size=256,
         print_step=50,
-        epochs=2,
+        epochs=5,
         plot_step=100,
         log_model_step=1000,
         save_step=10000,
