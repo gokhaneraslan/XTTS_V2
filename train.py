@@ -120,7 +120,7 @@ def main():
         num_loader_workers=4,
         eval_split_max_size=256,
         print_step=50,
-        epochs=100,
+        epochs=2,
         plot_step=100,
         log_model_step=1000,
         save_step=10000,
@@ -136,22 +136,22 @@ def main():
         test_sentences=[
             {
                 "text": "It took me quite a long time to develop a voice, and now that I have it I'm not going to be silent.",
-                "speaker_wav": SPEAKER_REFERENCE_WAV_PATHS,
+                "speaker_wav": SPEAKER_REFERENCE_WAV_PATH,
                 "language": "en",
             },
             {
                 "text": "This cake is great. It's so delicious and moist.",
-                "speaker_wav": SPEAKER_REFERENCE_WAV_PATHS,
+                "speaker_wav": SPEAKER_REFERENCE_WAV_PATH,
                 "language": "en",
             },
             {
                 "text": "Bu, sesimi geliştirmemin oldukça uzun zamanımı aldı ve şimdi sahip olduğuma göre sessiz kalmayacağım.",
-                "speaker_wav": SPEAKER_REFERENCE_WAV_PATHS,
+                "speaker_wav": SPEAKER_REFERENCE_WAV_PATH,
                 "language": "tr",
             },
             {
                 "text": "Bu kek harika. Çok lezzetli ve nemli.",
-                "speaker_wav": SPEAKER_REFERENCE_WAV_PATHS,
+                "speaker_wav": SPEAKER_REFERENCE_WAV_PATH,
                 "language": "tr",
             },
         ],
