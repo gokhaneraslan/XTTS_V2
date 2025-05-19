@@ -243,12 +243,13 @@ class GPTTrainer(BaseTTS):
 
             # delete inference layers
             
-            #try:
-            #  del self.xtts.gpt.gpt_inference
-            #except:
-            #  del self.xtts.gpt.base_model.model.gpt_inference
+            try:
+              del self.xtts.gpt.gpt_inference
+            except:
+              del self.xtts.gpt.base_model.model.gpt_inference
             
             del self.xtts.gpt.gpt.wte
+            
         return {"audios": test_audios}
 
     def test_log(
