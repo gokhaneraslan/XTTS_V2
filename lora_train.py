@@ -218,7 +218,7 @@ def main():
     print("Saving LORA...")
     
     model_peft.xtts.gpt.save_pretrained(LORA_ADAPTER_PATH)
-    config.save_json(XTTS_LORA_ORIGINAL_CONFIG_PATH)
+    config.save_json(str(XTTS_LORA_ORIGINAL_CONFIG_PATH))
 
     print(f"LoRA '{LORA_ADAPTER_PATH}' saved")
     print(f"Original XTTS config '{XTTS_LORA_ORIGINAL_CONFIG_PATH}' saved.")
