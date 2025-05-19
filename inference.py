@@ -94,6 +94,6 @@ def main(text:str, language: str):
     print(f"Output audio file '{OUTPUT_WAV_PATH}' saved")
 
 if __name__ == "__main__":
-    text = "cloud next iki bin yirmi beş etkinliği oldu."
-    language = "tr"
+    text = "This cake is great. It's so delicious and moist."
+    language = "en"
     main(text, language)
