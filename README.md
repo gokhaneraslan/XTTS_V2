@@ -53,7 +53,6 @@ The project expects the following directory structure:
 ├── MyTTSDataset/          # Your custom dataset in LJSpeech format
 │   ├── metadata.csv       # Dataset metadata
 │   └── wavs/              # WAV files
-│       └── segment_1.wav  # Reference audio sample
 ├── speaker_reference/     # Speaker reference audio files
 │   └── reference.wav      # Reference audio for voice cloning
 └── training_output/       # Training outputs
