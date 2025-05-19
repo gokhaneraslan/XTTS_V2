@@ -78,6 +78,9 @@ def main(text:str, language: str):
     
     print("Model loaded successfully.")
     
+    # During training, gpt inference layers are deleted. So we need to delete them here as well so that peft can load correctly.
+    del model.gpt.gpt_inference
+    
     print("Applying PEFT LoRA to the model...")
     model.gpt = PeftModel.from_pretrained(model.gpt, LORA_ADAPTER_PATH)
 
@@ -85,8 +88,11 @@ def main(text:str, language: str):
 
     if torch.cuda.is_available():
         model.cuda()
-
-
+        
+    # We are reinstalling the gpt inference layers because they were deleted
+    model_container.gpt.init_gpt_for_inference()
+    model_container.gpt.eval()
+    
     print("Computing speaker latents...")
     gpt_cond_latent, speaker_embedding = model.get_conditioning_latents(
         audio_path=[SPEAKER_REFERENCE_WAV_PATH],
