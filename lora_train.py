@@ -32,8 +32,8 @@ XTTS_LORA_ORIGINAL_CONFIG_PATH = LORA_ADAPTER_PATH / "original_xtts_config.json"
 config_dataset = BaseDatasetConfig(
     formatter="ljspeech",
     dataset_name="ljspeech",
-    path= MYTTSDATASET_ROOT,
-    meta_file_train= MYTTSDATASET_ROOT / "metadata.csv",
+    path= str(MYTTSDATASET_ROOT),
+    meta_file_train= str(MYTTSDATASET_ROOT / "metadata.csv"),
     language="tr",
 )
 
@@ -118,7 +118,7 @@ def main():
 
 
     config = GPTTrainerConfig(
-        output_path=OUTPUT_PATH,
+        output_path=str(OUTPUT_PATH),
         model_args=model_args,
         run_name="xtts_finetune_v2",
         project_name="xtts_finetuning_project",
@@ -204,7 +204,7 @@ def main():
     trainer = Trainer(
         args=trainer_args,
         config=config,
-        output_path=OUTPUT_PATH,
+        output_path=str(OUTPUT_PATH),
         model=model_peft,
         train_samples=train_samples,
         eval_samples=eval_samples,
@@ -217,7 +217,7 @@ def main():
     
     print("Saving LORA...")
     
-    model_peft.xtts.gpt.save_pretrained(LORA_ADAPTER_PATH)
+    model_peft.xtts.gpt.save_pretrained(str(LORA_ADAPTER_PATH))
     config.save_json(str(XTTS_LORA_ORIGINAL_CONFIG_PATH))
 
     print(f"LoRA '{LORA_ADAPTER_PATH}' saved")
