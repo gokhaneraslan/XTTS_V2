@@ -8,7 +8,7 @@ import sys
 from peft import LoraConfig, get_peft_model
 
  
-SCRIPT_DIR = Path("/content/TTS")
+SCRIPT_DIR = Path("/content/XTTS_V2")
 
 PRETRAINED_MODEL_ROOT = SCRIPT_DIR / "pretrained_model"
 MYTTSDATASET_ROOT = SCRIPT_DIR / "MyTTSDataset"
