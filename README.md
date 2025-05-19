@@ -10,7 +10,7 @@ This project builds upon the XTTS_V2 model from Coqui-AI TTS to provide:
 1. **Full Model Fine-tuning**: Traditional full parameter fine-tuning for XTTS_V2
 2. **LoRA Fine-tuning**: Memory-efficient fine-tuning using Low-Rank Adaptation
 3. **Inference Scripts**: Tools to synthesize speech using both standard and LoRA-adapted models
-4. **Support for Turkish**: Special focus on Turkish language support, but adaptable to other languages
+4. **Language Support**: The framework supports other languages supported by XTTS_V2.
 
 ## 🔧 Requirements & Setup
 
@@ -179,7 +179,7 @@ Alternative inference script that utilizes the training framework for LoRA-based
 
 3. **Reference Audio**: The quality of the reference audio significantly impacts the voice cloning results.
 
-4. **Language Support**: While focused on Turkish, the framework supports other languages supported by XTTS_V2.
+4. **Language Support**: The framework supports other languages supported by XTTS_V2.
 
 5. **File Paths**: Ensure all file paths are correctly set up before running the scripts.
 
