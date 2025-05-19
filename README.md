@@ -1,13 +1,13 @@
 # XTTS Fine-tuning Framework
 
 
-This repository contains a framework for fine-tuning [Coqui-AI's TTS](https://github.com/coqui-ai/TTS) XTTS model, specialized for multilingual (with focus on Turkish) text-to-speech applications. It provides tools for both standard fine-tuning and LoRA (Low-Rank Adaptation) based fine-tuning.
+This repository contains a framework for fine-tuning [Coqui-AI's TTS](https://github.com/coqui-ai/TTS) XTTS_V2 model, specialized for multilingual text-to-speech applications. It provides tools for both standard fine-tuning and LoRA (Low-Rank Adaptation) based fine-tuning.
 
 ## 📋 Overview
 
-This project builds upon the XTTS model from Coqui-AI TTS to provide:
+This project builds upon the XTTS_V2 model from Coqui-AI TTS to provide:
 
-1. **Full Model Fine-tuning**: Traditional full parameter fine-tuning for XTTS
+1. **Full Model Fine-tuning**: Traditional full parameter fine-tuning for XTTS_V2
 2. **LoRA Fine-tuning**: Memory-efficient fine-tuning using Low-Rank Adaptation
 3. **Inference Scripts**: Tools to synthesize speech using both standard and LoRA-adapted models
 4. **Support for Turkish**: Special focus on Turkish language support, but adaptable to other languages
@@ -40,13 +40,13 @@ The project expects the following directory structure:
 ### Installation
 
 1. Clone this repository
-2. Install Coqui-AI TTS
 ```bash
-pip install TTS
+git clone https://github.com/gokhaneraslan/XTTS_V2.git
+cd XTTS_V2
 ```
-3. Install additional dependencies
+2. Install additional dependencies
 ```bash
-pip install torch torchaudio peft
+pip install -r requirements.txt
 ```
 
 ## 🚀 Usage
@@ -96,16 +96,16 @@ python lora_syntesize.py
 ## 📝 Script Descriptions
 
 ### `train.py`
-Full model fine-tuning script. It loads the XTTS model and fine-tunes all parameters on your custom dataset.
+Full model fine-tuning script. It loads the XTTS_V2 model and fine-tunes all parameters on your custom dataset.
 
 ### `lora_train.py`
-LoRA-based fine-tuning script. It applies LoRA adapters to specific modules in the XTTS model, reducing memory requirements while still achieving good adaptation.
+LoRA-based fine-tuning script. It applies LoRA adapters to specific modules in the XTTS_V2 model, reducing memory requirements while still achieving good adaptation.
 
 ### `inference.py`
 Inference script for the standard fine-tuned model. It loads a fully fine-tuned model and generates speech.
 
 ### `lora_inference.py`
-Inference script for the LoRA fine-tuned model. It loads the base XTTS model and applies LoRA adapters for inference.
+Inference script for the LoRA fine-tuned model. It loads the base XTTS_V2 model and applies LoRA adapters for inference.
 
 ### `lora_syntesize.py`
 Alternative inference script that utilizes the training framework for LoRA-based synthesis.
@@ -165,9 +165,9 @@ Text-to-Speech systems convert written text into natural-sounding speech. Modern
 2. **Parametric TTS**: Synthesizes speech from parameters
 3. **Neural TTS**: Uses deep learning to generate speech directly
 
-### XTTS (Extended Text-to-Speech)
+### XTTS_V2 (Extended Text-to-Speech)
 
-XTTS is Coqui-AI's advanced neural TTS model that supports:
+XTTS_V2 is Coqui-AI's advanced neural TTS model that supports:
 
 - **Zero-shot voice cloning**: Mimicking voices from short audio samples
 - **Multilingual synthesis**: Supporting multiple languages with a single model
