@@ -120,6 +120,6 @@ def main(text:str, language: str):
 
 
 if __name__ == "__main__":
-    text = "This cake is great. It's so delicious and moist."
+    text = "It took me quite a long time to develop a voice, and now that I have it I'm not going to be silent."
     language = "en"
     main(text, language)
