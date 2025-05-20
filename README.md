@@ -18,6 +18,8 @@ This project builds upon the XTTS_V2 model from Coqui-AI TTS to provide:
 
 Before proceeding with any other steps, you must:
 
+IMPORTANT: You need to replace the reference.wav sound file in the folder with your own reference sound file. If you start the process with just the file here, you will get an error. Delete the reference.wav file, move your own reference file to the speaker_reference folder, and change its name to reference.wav.
+
 1. **Configure the main directory path**:
    Edit `config.py` to set your repository root path:
    ```python
