@@ -1,5 +1,6 @@
 import torch
 import sys
+import os
 import torchaudio
 from pathlib import Path
 from TTS.tts.configs.xtts_config import XttsConfig
