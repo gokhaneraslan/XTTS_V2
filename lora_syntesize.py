@@ -1,4 +1,5 @@
 import sys
+import os
 import torch
 import torchaudio
 from pathlib import Path
@@ -24,7 +25,8 @@ SPEAKER_REFERENCE_WAV_PATH = SPEAKER_REFERENCE_ROOT / "reference.wav"
 OUTPUT_PATH = OUTPUT_ROOT_DIR / "checkpoints/"
 
 LORA_ADAPTER_PATH = OUTPUT_PATH / "lora_adapter"
-OUTPUT_WAV_PATH = OUTPUT_ROOT_DIR / "samples" / "output.wav"
+OUTPUT_PATH = OUTPUT_ROOT_DIR / "samples"
+OUTPUT_WAV_PATH = OUTPUT_ROOT_DIR / "output.wav"
 
 def check_input_files_exist():
 
@@ -159,7 +161,8 @@ def main(text:str, language: str):
         language= language,
     )
 
-    torchaudio.save(OUTPUT_WAV_PATH, torch.tensor(out["wav"]).unsqueeze(0), 24000)
+    os.makedirs(OUTPUT_PATH, exist_ok=True)
+    torchaudio.save(str(OUTPUT_WAV_PATH), torch.tensor(out["wav"]).unsqueeze(0), 24000)
     print(f"Output audio file '{OUTPUT_WAV_PATH}' saved")
 
 
