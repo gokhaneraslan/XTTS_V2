@@ -4,7 +4,7 @@ from TTS.tts.datasets import load_tts_samples
 from TTS.tts.layers.xtts.trainer.gpt_trainer import GPTArgs, GPTTrainer, GPTTrainerConfig, XttsAudioConfig
 from pathlib import Path
 import sys
-
+import os
 from peft import LoraConfig, get_peft_model
 from config import MAIN_DIR
 
@@ -209,7 +209,7 @@ def main():
     print("------- Training Finished Successfully ----------")
     
     print("Saving LORA...")
-    
+    os.makedirs(LORA_ADAPTER_PATH, exist_ok=True)
     model_peft.xtts.gpt.save_pretrained(str(LORA_ADAPTER_PATH))
     config.save_json(str(XTTS_LORA_ORIGINAL_CONFIG_PATH))
 
