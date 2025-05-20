@@ -28,8 +28,8 @@ XTTS_LORA_ORIGINAL_CONFIG_PATH = LORA_ADAPTER_PATH / "original_xtts_config.json"
 
 
 SPEAKER_REFERENCE_WAV_PATH = SPEAKER_REFERENCE_ROOT / "reference.wav"
-OUTPUT_PATH = OUTPUT_ROOT_DIR / "samples"
-OUTPUT_WAV_PATH = OUTPUT_ROOT_DIR / "output.wav"
+OUTPUT_PATH_WAV = OUTPUT_ROOT_DIR / "samples"
+OUTPUT_WAV_PATH = OUTPUT_PATH_WAV / "output.wav"
 
 
 def check_input_files_exist():
@@ -114,7 +114,7 @@ def main(text:str, language: str):
         temperature=0.75,
     )
 
-    os.makedirs(OUTPUT_PATH, exist_ok=True)
+    os.makedirs(OUTPUT_PATH_WAV, exist_ok=True)
     torchaudio.save(str(OUTPUT_WAV_PATH), torch.tensor(out["wav"]).unsqueeze(0), 24000)
     print(f"Output audio file '{OUTPUT_WAV_PATH}' saved")
 
