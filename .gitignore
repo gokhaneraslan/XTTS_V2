@@ -1,2 +1,107 @@
 pretrained_model/dvae.pth
 pretrained_model/model.pth
+
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+conversation_memory.db
+
+# Vector stores
+vector_store/
+chroma_db*/
+*.chroma
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+.tox/
+tests/data/
+tests/chroma_db_test/
+tests/test_memory.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data files
+!data/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.tar
+docker-compose.override.yml
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Model cache
+.cache/
+huggingface/
+sentence-transformers/
+
+# Reports
+bandit-report.json
+*-report.html
+*-report.json
+
+# Backup files
+*.bak
+*.backup
