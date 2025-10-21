@@ -16,7 +16,6 @@ fsspec
 mutagen
 pandas
 matplotlib
-coqpit
 transformers==4.47.1
 encodec
 unidecode
