@@ -17,7 +17,7 @@ mutagen
 pandas
 matplotlib
 coqpit
-transformers
+transformers==4.47.1
 encodec
 unidecode
 num2words
