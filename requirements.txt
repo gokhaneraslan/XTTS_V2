@@ -16,9 +16,9 @@ fsspec
 mutagen
 pandas
 matplotlib
-trainer
 coqpit
 transformers
 encodec
 unidecode
 num2words
+trainer
